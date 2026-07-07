@@ -17,7 +17,7 @@ export default function TripHeader({ title, date }: Props) {
       </div>
 
       <div className="date">
-        <EditableField value={dateState} onChange={setDateState} />
+        <EditableField value={dateState} onChange={setDateState} tag="h2" />
       </div>
     </div>
   );

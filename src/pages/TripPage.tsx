@@ -3,6 +3,9 @@ import morroco from "../assets/morroco.jpg";
 import surf from "../assets/surf-banner.jpg";
 import TripHeader from "../components/TripHeader";
 import "../styles/TripPage.css";
+import { useState } from "react";
+import EditableField from "../components/EditableField";
+import TodoComponent from "../components/ToDoComponent";
 
 type Props = {
   imageUrl?: string;
@@ -11,27 +14,31 @@ type Props = {
   description?: string;
 };
 
-const TripPage = (
-  props: Props = {
-    imageUrl: surf,
-    title: "Default Title",
-    description: "Default Description",
-  },
-) => {
+function TripPage({
+  imageUrl = morroco,
+  title = "Where is your next adventure?",
+  description = "Full of surf, sea, and sun, this trip is perfect for those looking to catch some waves and enjoy the beach life.",
+}: Props) {
+  const [descriptionState, setDescriptionState] = useState(description);
+
   return (
     <div className="container-fluid p-0">
-      <HeaderImage imageUrl={morroco} />
+      <HeaderImage imageUrl={imageUrl} />
       <div className="container py-4">
-        <TripHeader title="Morocco Adventure" date="01/05/2026 - 15/05/2026" />
+        <TripHeader title={title} date="01/05/2026 - 15/05/2026" />
 
-        <p>Exploring the coast, surfing and hiking.</p>
+        <EditableField
+          value={descriptionState ?? "Hello"}
+          onChange={setDescriptionState}
+          multiline={true}
+          tag="p"
+        />
 
-        <h2>Itinerary</h2>
-
-        <h2>Packing List</h2>
+        <TodoComponent type="Itinerary" />
+        <TodoComponent type="Packing List" />
       </div>
     </div>
   );
-};
+}
 
 export default TripPage;

@@ -15,3 +15,267 @@
   font-weight: 300;
   color: #000000;
 }
+
+
+/* Main itinerary / packing section */
+
+.todo-section {
+  margin: 40px auto;
+  max-width: 1200px;
+
+  background: #faf7f0;
+
+  border: 1px solid #eadbc8;
+  border-radius: 24px;
+
+  padding: 35px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Optional: subtle hover on whole section */
+
+.todo-section:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.08);
+}
+
+
+.todo-title {
+  font-size: 2rem;
+  font-weight: 400;
+
+  margin-bottom: 20px;
+
+  color: #264653;
+
+  position: relative;
+}
+
+
+/* Little coastal underline */
+
+.todo-title::after {
+  content: "";
+
+  display: block;
+
+  width: 60px;
+  height: 3px;
+
+  background: #d8c3a5;
+
+  margin-top: 8px;
+
+  border-radius: 10px;
+}
+
+
+/* Input row */
+
+.todo-input-container {
+  display: flex;
+  gap: 12px;
+
+  margin-bottom: 25px;
+}
+
+
+.todo-input {
+  flex: 1;
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #eadbc8;
+
+  font-size: 1rem;
+
+  background: white;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.todo-input:focus {
+
+  outline: none;
+
+  border-color: #457b9d;
+
+  box-shadow:
+    0 0 0 4px rgba(69,123,157,0.15);
+}
+
+
+
+/* Add button */
+
+.todo-add-button {
+
+  background: #457b9d;
+
+  color: white;
+
+  padding: 12px 25px;
+
+  border-radius: 999px;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.todo-add-button:hover {
+
+  background: #386781;
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+
+/* List */
+
+.todo-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+
+/* Individual cards */
+
+.todo-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  background: white;
+
+  border: 1px solid #eadbc8;
+
+  border-radius: 16px;
+
+  padding: 16px 20px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+.todo-item:hover {
+
+  transform:
+    translateY(-4px)
+    scale(1.01);
+
+  box-shadow:
+    0 12px 25px rgba(0,0,0,0.12);
+}
+
+
+.todo-checkbox {
+
+  width: 18px;
+  height: 18px;
+
+  cursor: pointer;
+}
+
+
+.todo-text {
+
+  flex: 1;
+
+  color: #264653;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+
+/* Completed items */
+
+.todo-item.completed {
+
+  background: #f5efe5;
+
+}
+
+
+.todo-item.completed .todo-text {
+
+  color: #8a8175;
+
+  text-decoration:
+    line-through;
+}
+
+
+
+/* Delete button */
+
+.todo-delete {
+
+  border: none;
+
+  background: transparent;
+
+  color: #e76f51;
+
+  cursor: pointer;
+
+  font-size: 0.9rem;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.todo-delete:hover {
+
+  transform:
+    scale(1.1);
+
+  opacity:
+    0.8;
+}
