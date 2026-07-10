@@ -5,7 +5,7 @@
       "title": "Morocco",
       "description": "A trip to Morocco",
       "date": "2023-06-15",
-      "itenaryItems": [
+      "itineraryItems": [
         "Visit the Sahara Desert",
         "Explore the markets in Marrakech",
         "Take a camel ride in the desert",
@@ -25,7 +25,7 @@
       "title": "Surfing in Bali",
       "description": "A surfing adventure in Bali",
       "date": "2023-07-20",
-      "itenaryItems": [
+      "itineraryItems": [
         "Surfing lessons in Kuta",
         "Visit Uluwatu Temple",
         "Explore the rice terraces in Ubud",
@@ -42,10 +42,10 @@
     },
     {
       "id": "kS0xfcrf2fs",
-      "title": "Surfing in Portugal",
+      "title": "Surfing in Portugal - Updated",
       "description": "A surfing adventure in Portugal",
       "date": "2024-07-20",
-      "itenaryItems": [],
+      "itineraryItems": [],
       "packingList": [],
       "image": "surf.jpg"
     }
