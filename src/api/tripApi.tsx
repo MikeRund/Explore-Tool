@@ -35,4 +35,4 @@ const updateTrip = async (id: string, trip: Trip): Promise<Trip> => {
 const deleteTrip = async (id: string): Promise<void> => {
   await axios.delete(`${API_BASE_URL}/${id}`);
 };
-export { fetchTrips, getTrip, postTrip, updateTrip, deleteTrip, Trip };
+export { fetchTrips, getTrip, postTrip, updateTrip, deleteTrip };

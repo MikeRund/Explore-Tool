@@ -1,8 +1,5 @@
 import HeaderImage from "../components/HeaderImage";
-import surfBanner from "../assets/surf-banner.jpg";
-import morroco from "../assets/morroco.jpg";
-import portugal from "../assets/portugal.jpg";
-import indonesia from "../assets/indonesia.jpg";
+import surfBanner from "/images/surf.jpg";
 import Title from "../components/Title";
 import TripCard from "../components/TripCard";
 import "../styles/HomePage.css";
@@ -15,6 +12,9 @@ import {
   updateTrip,
   type Trip,
 } from "../api/tripApi";
+import type { RootState, AppDispatch } from "../state/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTripsAsync } from "../state/tripSlice";
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
@@ -42,12 +42,27 @@ export default function HomePage() {
       date: "2024-07-20",
       itineraryItems: [],
       packingList: [],
-      image: "surf.jpg",
+      image: "/images/portugal.jpg",
     };
 
     const updatedTrip = await updateTrip(trip.id, trip);
     console.log(updatedTrip); // Assuming getTrip is a function that fetches a trip by id
   };
+
+  const trips = useSelector((state: RootState) => state.trip.trips);
+  console.log("Trips from Redux state:", trips);
+  const dispatch = useDispatch<AppDispatch>();
+  dispatch(fetchTripsAsync());
+  const tripsList = trips.map((trip) => (
+    <TripCard
+      key={trip.id}
+      imageUrl={trip.image ?? surfBanner}
+      date={trip.date}
+      title={trip.title}
+      description={trip.description}
+    />
+  ));
+
   return (
     <div className="container-fluid p-0">
       <HeaderImage imageUrl={surfBanner}>
@@ -58,7 +73,12 @@ export default function HomePage() {
         <div className="d-flex justify-content-between align-items-center mb-3">
           <Title />
           <div className="d-flex gap-4">
-            <button className="button-56" onClick={handleOnClick}>
+            <button
+              className="button-56"
+              onClick={() => {
+                dispatch(fetchTripsAsync());
+              }}
+            >
               Get Trips
             </button>
             <button className="button-56" onClick={handleShowModal}>
@@ -74,24 +94,11 @@ export default function HomePage() {
           </div>
         </div>
         <div className="container-fluid d-flex flex-column gap-3">
-          <TripCard
-            imageUrl={morroco}
-            date="2024-08-01"
-            title="Trip to Morroco"
-            description="Explore the beautiful landscapes and culture of Morroco."
-          />
-          <TripCard
-            imageUrl={indonesia}
-            date="2024-06-01"
-            title="Trip to Indonesia"
-            description="Explore the beautiful landscapes and culture of Indonesia."
-          />
-          <TripCard
-            imageUrl={portugal}
-            date="2024-04-01"
-            title="Trip to Portugal"
-            description="Explore the beautiful landscapes and culture of Portugal."
-          />
+          {tripsList.length > 0 ? (
+            tripsList
+          ) : (
+            <p>Add some trips!! Where do you want to explore next? 🤔</p>
+          )}
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import HeaderImage from "../components/HeaderImage";
-import morroco from "../assets/morroco.jpg";
-import surf from "../assets/surf-banner.jpg";
+import morroco from "/images/morroco.jpg";
 import TripHeader from "../components/TripHeader";
 import "../styles/TripPage.css";
 import { useState } from "react";

@@ -18,7 +18,7 @@
         "Swimwear",
         "Camera"
       ],
-      "image": "morroco.jpg"
+      "image": "/images/morroco.jpg"
     },
     {
       "id": "2",
@@ -38,7 +38,7 @@
         "Flip flops",
         "Camera"
       ],
-      "image": "indonesia.jpg"
+      "image": "/images/indonesia.jpg"
     },
     {
       "id": "kS0xfcrf2fs",
@@ -47,7 +47,15 @@
       "date": "2024-07-20",
       "itineraryItems": [],
       "packingList": [],
-      "image": "surf.jpg"
+      "image": "/images/portugal.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Surfing in Northern Spain",
+      "description": "A surfing adventure in Northern Spain",
+      "date": "2024-07-20",
+      "itineraryItems": [],
+      "packingList": []
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
