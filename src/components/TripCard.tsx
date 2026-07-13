@@ -9,8 +9,9 @@ type Props = {
   date: string;
   title: string;
   description: string;
+  onClick: () => void;
 };
-function TripCard({ id, imageUrl, date, title, description }: Props) {
+function TripCard({ id, imageUrl, date, title, description, onClick }: Props) {
   const dispatch = useDispatch<AppDispatch>();
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -18,7 +19,7 @@ function TripCard({ id, imageUrl, date, title, description }: Props) {
   };
 
   return (
-    <Card className="trip-card">
+    <Card className="trip-card" onClick={onClick}>
       <div className="trip-card-layout">
         <button className="trip-delete-button" onClick={handleDelete}>
           X

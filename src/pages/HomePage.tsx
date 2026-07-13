@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import AddTripModal from "./AddTripModal";
 import type { RootState, AppDispatch } from "../state/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { fetchTripsAsync } from "../state/tripSlice";
 
 export default function HomePage() {
@@ -22,8 +23,14 @@ export default function HomePage() {
     dispatch(fetchTripsAsync());
   }, [dispatch]);
 
+  const handleOnClick = (tripId: string) => {
+    navigate(`/trip/${tripId}`);
+  };
+  const navigate = useNavigate();
+
   const tripsList = trips.map((trip) => (
     <TripCard
+      onClick={() => handleOnClick(trip.id)}
       id={trip.id}
       key={trip.id}
       imageUrl={trip.image ?? surfBanner}
