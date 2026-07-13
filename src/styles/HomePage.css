@@ -72,21 +72,16 @@ body {
 
 .trip-card {
 
+  position: relative;
   background: #faf7f0;
-
   border-radius: 18px;
-
   overflow: hidden;
-
   box-shadow:
     0 6px 18px rgba(0,0,0,0.08);
-
   border: 1px solid #eadbc8;
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
   cursor: pointer;
 }
 
@@ -129,6 +124,66 @@ body {
   padding: 20px;
 
   color: #264653;
+}
+
+.trip-delete-button {
+
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f7cec4;
+
+  color: white;
+
+  font-size: 1.2rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+
+  z-index: 2;
+
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.trip-delete-button:hover {
+
+  background: #d65a3d;
+
+  transform:
+    scale(1.15)
+    rotate(5deg);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.15);
+}
+
+
+.trip-delete-button:active {
+
+  transform:
+    scale(0.95);
+
 }
 
 

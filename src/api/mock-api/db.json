@@ -21,41 +21,21 @@
       "image": "/images/morroco.jpg"
     },
     {
-      "id": "2",
-      "title": "Surfing in Bali",
-      "description": "A surfing adventure in Bali",
-      "date": "2023-07-20",
-      "itineraryItems": [
-        "Surfing lessons in Kuta",
-        "Visit Uluwatu Temple",
-        "Explore the rice terraces in Ubud",
-        "Relax on the beaches of Seminyak"
-      ],
-      "packingList": [
-        "Surfboard",
-        "Wetsuit",
-        "Sunscreen",
-        "Flip flops",
-        "Camera"
-      ],
-      "image": "/images/indonesia.jpg"
-    },
-    {
-      "id": "kS0xfcrf2fs",
-      "title": "Surfing in Portugal - Updated",
-      "description": "A surfing adventure in Portugal",
-      "date": "2024-07-20",
-      "itineraryItems": [],
-      "packingList": [],
-      "image": "/images/portugal.jpg"
-    },
-    {
       "id": "4",
       "title": "Surfing in Northern Spain",
       "description": "A surfing adventure in Northern Spain",
       "date": "2024-07-20",
       "itineraryItems": [],
       "packingList": []
+    },
+    {
+      "id": "ypaWq3cSlbc",
+      "title": "Surfing in Portugal - Updated",
+      "description": "A surfing adventure in Portugal",
+      "date": "2024-07-20",
+      "itineraryItems": [],
+      "packingList": [],
+      "image": "/images/portugal.jpg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

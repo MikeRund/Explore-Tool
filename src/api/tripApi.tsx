@@ -7,8 +7,9 @@ export interface Trip {
   date: string;
   itineraryItems: string[];
   packingList: string[];
-  image: string;
+  image?: string;
 }
+export type CreateTripRequest = Omit<Trip, "id">;
 
 const API_BASE_URL = "http://localhost:3000/trips";
 
@@ -22,7 +23,7 @@ const getTrip = async (id: string): Promise<Trip> => {
   return response.data;
 };
 
-const postTrip = async (trip: Trip): Promise<Trip> => {
+const postTrip = async (trip: CreateTripRequest): Promise<Trip> => {
   const response = await axios.post<Trip>(API_BASE_URL, trip);
   return response.data;
 };
