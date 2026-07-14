@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/trip/:tripId" element={<TripPage />} />
+          <Route path="/trip/:id" element={<TripPage />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>

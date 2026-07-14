@@ -1,12 +1,12 @@
 import axios from "axios";
-
+import type { ToDoItem } from "../components/ToDoComponent";
 export interface Trip {
   id: string;
   title: string;
   description: string;
   date: string;
-  itineraryItems: string[];
-  packingList: string[];
+  itineraryItems: ToDoItem[];
+  packingList: ToDoItem[];
   image?: string;
 }
 export type CreateTripRequest = Omit<Trip, "id">;

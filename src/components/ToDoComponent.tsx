@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-interface TodoItem {
+export interface TodoItem {
   id: string;
   text: string;
   completed: boolean;
@@ -8,11 +8,16 @@ interface TodoItem {
 
 type Props = {
   type?: "Itinerary" | "Packing List";
+  todos?: TodoItem[];
 };
 
-const TodoComponent = ({ type }: Props) => {
-  const [todos, setTodos] = useState<TodoItem[]>([]);
+const TodoComponent = ({ type, todos: initialTodos }: Props) => {
+  const [todos, setTodos] = useState<TodoItem[]>(initialTodos ?? []);
   const [newTodo, setNewTodo] = useState("");
+
+  useEffect(() => {
+    setTodos(initialTodos ?? []);
+  }, [initialTodos]);
 
   const addTodo = () => {
     if (newTodo !== "") {

@@ -24,6 +24,7 @@ export default function HomePage() {
   }, [dispatch]);
 
   const handleOnClick = (tripId: string) => {
+    console.log("Navigating with:", tripId);
     navigate(`/trip/${tripId}`);
   };
   const navigate = useNavigate();

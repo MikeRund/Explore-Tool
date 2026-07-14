@@ -2,10 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   deleteTrip,
   fetchTrips,
-  getTrip,
   postTrip,
-  updateTrip,
   type Trip,
+  type CreateTripRequest,
 } from "../api/tripApi";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
@@ -66,7 +65,6 @@ export const fetchTripsAsync = createAsyncThunk("trip/fetchTrips", async () => {
   return trips;
 });
 
-type CreateTripRequest = Omit<Trip, "id">;
 export const postTripAsync = createAsyncThunk(
   "trip/postTrip",
   async (trip: CreateTripRequest) => {

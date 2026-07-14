@@ -37,6 +37,20 @@
       "itineraryItems": [],
       "packingList": [],
       "image": "/images/portugal.jpg"
+    },
+    {
+      "title": "Ireland Surf Trip",
+      "description": "Gonna surf with some buddies",
+      "date": "2026-07-16",
+      "itineraryItems": [
+        {
+          "id": "1",
+          "text": "Visit the Cliffs of Moher",
+          "completed": true
+        }
+      ],
+      "packingList": [],
+      "id": "atJr4Se6jXk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
