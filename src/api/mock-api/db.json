@@ -58,6 +58,11 @@
           "id": "1",
           "text": "Visit the Cliffs of Moher",
           "completed": true
+        },
+        {
+          "id": "692e143e-44f2-4b19-a2e2-5926297e1583",
+          "text": "Change",
+          "completed": true
         }
       ],
       "packingList": [],

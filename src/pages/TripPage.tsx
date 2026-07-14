@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import type { RootState, AppDispatch } from "../state/store";
 import { useSelector, useDispatch } from "react-redux";
 import type { Trip } from "../api/tripApi";
-import { fetchTripsAsync } from "../state/tripSlice";
+import { fetchTripsAsync, updateTripAsync } from "../state/tripSlice";
 
 // type Props = {
 //   imageUrl?: string;
@@ -65,14 +65,35 @@ function TripPage() {
           tag="p"
         />
 
-        <TodoComponent type="Itinerary" todos={editedTrip?.itineraryItems} />
-        <TodoComponent type="Packing List" todos={editedTrip?.packingList} />
+        <TodoComponent
+          type="Itinerary"
+          todos={editedTrip?.itineraryItems ?? []}
+          onChange={(newTodos) =>
+            setEditedTrip((prev) =>
+              prev ? { ...prev, itineraryItems: newTodos } : prev,
+            )
+          }
+        />
+        <TodoComponent
+          type="Packing List"
+          todos={editedTrip?.packingList ?? []}
+          onChange={(newTodos) =>
+            setEditedTrip((prev) =>
+              prev ? { ...prev, packingList: newTodos } : prev,
+            )
+          }
+        />
         <div className="d-flex justify-content-center mt-3">
           <button
             className="button-56"
-            onClick={() =>
-              alert("Save Changes functionality not implemented yet")
-            }
+            onClick={() => {
+              if (editedTrip) {
+                dispatch(updateTripAsync(editedTrip));
+                alert("Trip updated successfully!");
+              } else {
+                alert("No trip data to update.");
+              }
+            }}
           >
             Save Changes
           </button>

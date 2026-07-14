@@ -8,16 +8,12 @@ export interface TodoItem {
 
 type Props = {
   type?: "Itinerary" | "Packing List";
-  todos?: TodoItem[];
+  todos: TodoItem[];
+  onChange: (todos: TodoItem[]) => void;
 };
 
-const TodoComponent = ({ type, todos: initialTodos }: Props) => {
-  const [todos, setTodos] = useState<TodoItem[]>(initialTodos ?? []);
+const TodoComponent = ({ type, todos, onChange }: Props) => {
   const [newTodo, setNewTodo] = useState("");
-
-  useEffect(() => {
-    setTodos(initialTodos ?? []);
-  }, [initialTodos]);
 
   const addTodo = () => {
     if (newTodo !== "") {
@@ -27,14 +23,14 @@ const TodoComponent = ({ type, todos: initialTodos }: Props) => {
         text: newTodo,
         completed: false,
       };
-      setTodos([...todos, newTodoItem]);
+      onChange([...todos, newTodoItem]);
       setNewTodo("");
     }
   };
 
   const removeTodo = (id: string) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
+    onChange(updatedTodos);
   };
 
   const toggleComplete = (id: string) => {
@@ -44,7 +40,7 @@ const TodoComponent = ({ type, todos: initialTodos }: Props) => {
       }
       return todo;
     });
-    setTodos(updatedTodos);
+    onChange(updatedTodos);
   };
 
   return (

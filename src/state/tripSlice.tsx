@@ -3,6 +3,7 @@ import {
   deleteTrip,
   fetchTrips,
   postTrip,
+  updateTrip,
   type Trip,
   type CreateTripRequest,
 } from "../api/tripApi";
@@ -57,6 +58,19 @@ const tripSlice = createSlice({
         state.error = null;
       },
     );
+    builder.addCase(
+      updateTripAsync.fulfilled,
+      (state, action: PayloadAction<Trip>) => {
+        const index = state.trips.findIndex(
+          (trip) => trip.id === action.payload.id,
+        );
+        if (index !== -1) {
+          state.trips[index] = action.payload;
+        }
+        state.loading = false;
+        state.error = null;
+      },
+    );
   },
 });
 
@@ -78,6 +92,14 @@ export const deleteTripAsync = createAsyncThunk(
   async (id: string) => {
     await deleteTrip(id);
     return id;
+  },
+);
+
+export const updateTripAsync = createAsyncThunk(
+  "trip/updateTrip",
+  async (trip: Trip) => {
+    const updatedTrip = await updateTrip(trip.id, trip);
+    return updatedTrip;
   },
 );
 
