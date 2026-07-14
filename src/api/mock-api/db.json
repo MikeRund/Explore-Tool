@@ -6,17 +6,28 @@
       "description": "A trip to Morocco",
       "date": "2023-06-15",
       "itineraryItems": [
-        "Visit the Sahara Desert",
-        "Explore the markets in Marrakech",
-        "Take a camel ride in the desert",
-        "Shred some gnar at the beach in Taghazout"
+        {
+          "id": "1",
+          "text": "Visit the Sahara Desert",
+          "completed": false
+        },
+        {
+          "id": "2",
+          "text": "Explore Marrakech",
+          "completed": true
+        }
       ],
       "packingList": [
-        "Passport",
-        "Sunscreen",
-        "Hiking shoes",
-        "Swimwear",
-        "Camera"
+        {
+          "id": "1",
+          "text": "Sunscreen",
+          "completed": false
+        },
+        {
+          "id": "2",
+          "text": "Hat",
+          "completed": true
+        }
       ],
       "image": "/images/morroco.jpg"
     },

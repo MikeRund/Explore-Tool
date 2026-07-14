@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 import EditableField from "../components/EditableField";
 import TodoComponent from "../components/ToDoComponent";
 import { useParams } from "react-router-dom";
-import type { RootState } from "../state/store";
-import { useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "../state/store";
+import { useSelector, useDispatch } from "react-redux";
 import type { Trip } from "../api/tripApi";
+import { fetchTripsAsync } from "../state/tripSlice";
 
 // type Props = {
 //   imageUrl?: string;
@@ -18,27 +19,39 @@ import type { Trip } from "../api/tripApi";
 // };
 
 function TripPage() {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    // Fetch trips when the component mounts
+    dispatch(fetchTripsAsync());
+  }, [dispatch]);
   const { id } = useParams();
   const trip = useSelector((state: RootState) =>
     state.trip.trips.find((trip) => trip.id === id),
   );
+
   const [editedTrip, setEditedTrip] = useState<Trip>();
   useEffect(() => {
     if (trip) {
       setEditedTrip(trip);
     }
   }, [trip]);
-  console.log("TripPage id:", id);
-  console.log("TripPage trip:", trip);
-  console.log("TripPage trip items:", trip?.itineraryItems);
 
   return (
     <div className="container-fluid p-0">
-      <HeaderImage imageUrl={trip?.image ?? morroco} />
+      <HeaderImage imageUrl={editedTrip?.image ?? morroco} />
       <div className="container py-4">
         <TripHeader
-          title={trip?.title ?? "Where is your next adventure?"}
-          date="01/05/2026 - 15/05/2026"
+          title={editedTrip?.title ?? "Where is your next adventure?"}
+          date={editedTrip?.date ?? "Date not available"}
+          onTitleChange={(newTitle) =>
+            setEditedTrip((prev) =>
+              prev ? { ...prev, title: newTitle } : prev,
+            )
+          }
+          onDateChange={(newDate) =>
+            setEditedTrip((prev) => (prev ? { ...prev, date: newDate } : prev))
+          }
         />
 
         <EditableField

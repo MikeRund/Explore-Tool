@@ -1,23 +1,26 @@
-import { useState } from "react";
 import EditableField from "./EditableField";
 
 type Props = {
   title: string;
   date: string;
+  onTitleChange: (newTitle: string) => void;
+  onDateChange: (newDate: string) => void;
 };
 
-export default function TripHeader({ title, date }: Props) {
-  const [titleState, setTitleState] = useState(title);
-  const [dateState, setDateState] = useState(date);
-
+export default function TripHeader({
+  title,
+  date,
+  onTitleChange,
+  onDateChange,
+}: Props) {
   return (
     <div className="trip-header">
       <div className="destination">
-        <EditableField value={titleState} onChange={setTitleState} />
+        <EditableField value={title} onChange={onTitleChange} />
       </div>
 
       <div className="date">
-        <EditableField value={dateState} onChange={setDateState} tag="h2" />
+        <EditableField value={date} onChange={onDateChange} tag="h2" />
       </div>
     </div>
   );
