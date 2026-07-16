@@ -1,5 +1,11 @@
 # Explore Tool - Architecture & Development Notes
 
+## Local Setup
+
+- cd .\src\api\mock-api\
+- json-server --watch db.json --port 3000
+- npm run dev
+
 ## Overview
 
 Explore Tool is a React + TypeScript travel planning application that allows users to:
@@ -159,9 +165,7 @@ The API layer is responsible only for communication.
 Example:
 
 ```typescript
-const postTrip = async (
-  trip: CreateTripRequest
-): Promise<Trip> => {
+const postTrip = async (trip: CreateTripRequest): Promise<Trip> => {
   const response = await axios.post(API_BASE_URL, trip);
   return response.data;
 };
@@ -213,7 +217,7 @@ Example:
 Created using Redux Toolkit:
 
 ```typescript
-createSlice()
+createSlice();
 ```
 
 A slice combines:
@@ -229,7 +233,7 @@ const tripSlice = createSlice({
   name: "trip",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {}
+  extraReducers: (builder) => {},
 });
 ```
 
@@ -240,7 +244,8 @@ const tripSlice = createSlice({
 Originally:
 
 ```typescript
-reducers: {}
+reducers: {
+}
 ```
 
 seemed unusual.
@@ -252,7 +257,7 @@ Therefore, state changes are triggered by asynchronous requests.
 These are handled using:
 
 ```typescript
-extraReducers
+extraReducers;
 ```
 
 rather than manual reducers.
@@ -266,13 +271,10 @@ Async thunks handle API calls.
 Example:
 
 ```typescript
-export const fetchTripsAsync = createAsyncThunk(
-  "trip/fetchTrips",
-  async () => {
-    const trips = await fetchTrips();
-    return trips;
-  }
-);
+export const fetchTripsAsync = createAsyncThunk("trip/fetchTrips", async () => {
+  const trips = await fetchTrips();
+  return trips;
+});
 ```
 
 The thunk lifecycle:
@@ -305,12 +307,9 @@ Extra reducers listen for thunk results.
 Example:
 
 ```typescript
-builder.addCase(
-  fetchTripsAsync.fulfilled,
-  (state, action) => {
-    state.trips = action.payload;
-  }
-);
+builder.addCase(fetchTripsAsync.fulfilled, (state, action) => {
+  state.trips = action.payload;
+});
 ```
 
 Meaning:
@@ -390,7 +389,7 @@ state.trips.push(newTrip)
 Reducer:
 
 ```typescript
-state.trips.push(action.payload)
+state.trips.push(action.payload);
 ```
 
 ---
@@ -426,10 +425,7 @@ remove from Redux
 Reducer:
 
 ```typescript
-state.trips =
-state.trips.filter(
-  trip => trip.id !== action.payload
-)
+state.trips = state.trips.filter((trip) => trip.id !== action.payload);
 ```
 
 ---
@@ -439,10 +435,7 @@ state.trips.filter(
 Reducer:
 
 ```typescript
-const index =
-state.trips.findIndex(
-  trip => trip.id === action.payload.id
-);
+const index = state.trips.findIndex((trip) => trip.id === action.payload.id);
 
 state.trips[index] = action.payload;
 ```
@@ -517,8 +510,8 @@ EditableField
 The child receives:
 
 ```typescript
-value
-onChange
+value;
+onChange;
 ```
 
 Example:
@@ -559,8 +552,8 @@ TripPage
 TodoComponent receives:
 
 ```typescript
-todos
-onChange
+todos;
+onChange;
 ```
 
 This allows:
