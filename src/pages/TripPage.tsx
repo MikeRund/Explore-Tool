@@ -11,13 +11,6 @@ import { useSelector, useDispatch } from "react-redux";
 import type { Trip } from "../api/tripApi";
 import { fetchTripsAsync, updateTripAsync } from "../state/tripSlice";
 
-// type Props = {
-//   imageUrl?: string;
-//   date?: string;
-//   title?: string;
-//   description?: string;
-// };
-
 function TripPage() {
   const dispatch = useDispatch<AppDispatch>();
 

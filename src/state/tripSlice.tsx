@@ -62,7 +62,7 @@ const tripSlice = createSlice({
       updateTripAsync.fulfilled,
       (state, action: PayloadAction<Trip>) => {
         const index = state.trips.findIndex(
-          (trip) => trip.id === action.payload.id,
+          (trip) => trip.id === action.payload.id, // returns the index of the trip to be updated
         );
         if (index !== -1) {
           state.trips[index] = action.payload;

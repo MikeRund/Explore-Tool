@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { Trip } from "../api/tripApi";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
