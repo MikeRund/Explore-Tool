@@ -2,14 +2,14 @@
   "trips": [
     {
       "id": "1",
-      "title": "Morocco",
-      "description": "A trip to Morocco",
-      "date": "2023-06-15",
+      "title": "Morocco - Updated",
+      "description": "A trip to Morocco to shred some gnarr\n",
+      "date": "2023-06-2026",
       "itineraryItems": [
         {
           "id": "1",
           "text": "Visit the Sahara Desert",
-          "completed": false
+          "completed": true
         },
         {
           "id": "2",
@@ -19,14 +19,19 @@
       ],
       "packingList": [
         {
-          "id": "1",
-          "text": "Sunscreen",
-          "completed": false
-        },
-        {
           "id": "2",
           "text": "Hat",
           "completed": true
+        },
+        {
+          "id": "386a614d-67f8-4dce-b4c7-f2766713789e",
+          "text": "Surfboard",
+          "completed": false
+        },
+        {
+          "id": "517602a5-d59e-4b38-abe9-26d46a001960",
+          "text": "Rash vest",
+          "completed": false
         }
       ],
       "image": "/images/morroco.jpg"
@@ -50,23 +55,12 @@
       "image": "/images/portugal.jpg"
     },
     {
-      "title": "Ireland Surf Trip",
-      "description": "Gonna surf with some buddies",
-      "date": "2026-07-16",
-      "itineraryItems": [
-        {
-          "id": "1",
-          "text": "Visit the Cliffs of Moher",
-          "completed": true
-        },
-        {
-          "id": "692e143e-44f2-4b19-a2e2-5926297e1583",
-          "text": "Change",
-          "completed": true
-        }
-      ],
+      "title": "Ireland ",
+      "description": "For some cold rainy waves ",
+      "date": "2026-07-31",
+      "itineraryItems": [],
       "packingList": [],
-      "id": "atJr4Se6jXk"
+      "id": "X3_9clZOsRw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
