@@ -1,5 +1,18 @@
 # Explore Tool - Architecture & Development Notes
 
+## Purpose
+This mini CRUD project was to have a play with the techstack:
+
+- React
+- Typescript
+- Redux
+- Jest
+
+## Demo
+
+https://github.com/user-attachments/assets/5ea28735-42c9-443d-a60a-c5d41f9ee5d6
+
+
 ## Local Setup
 
 - cd .\src\api\mock-api\
